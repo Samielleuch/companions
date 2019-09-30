@@ -16,9 +16,26 @@
         <v-carousel>
           <v-carousel-item v-for="(item, i) in Services.length / 2" :key="i">
             <v-row class="fill-height" align="center" justify="center">
-              <v-flex :key="j" v-for="j in 2">
-                <div class="display-2 mx-5">
-                  {{ Services[(i + j) % 4].title }}
+              <v-flex :key="j" v-for="j in 3">
+                <div>
+                  <v-card class="mx-auto" max-width="400" white>
+                    <v-img
+                      class="white--text"
+                      height="300px"
+                      :src="Services[(i + j) % 4].src"
+                    >
+                      <v-card-title class="align-end fill-height">{{
+                        Services[(i + j) % 4].title
+                      }}</v-card-title>
+                    </v-img>
+                    <v-card-text>
+                      <span>Number 10</span><br />
+                      <span class="text--primary">
+                        <span>Whitehaven Beach</span><br />
+                        <span>Whitsunday Island, Whitsunday Islands</span>
+                      </span>
+                    </v-card-text>
+                  </v-card>
                 </div>
               </v-flex>
             </v-row>
@@ -41,7 +58,11 @@ export default {
         src:
           "https://d9np3dj86nsu2.cloudfront.net/image/8baf6e43ca20e9331d0b9b5c30a612f4"
       },
-      { title: "Welcoming Comunity" },
+      {
+        title: "Welcoming Comunity",
+        src:
+          "https://d9np3dj86nsu2.cloudfront.net/image/8baf6e43ca20e9331d0b9b5c30a612f4"
+      },
       {
         title: "Healthy Animals",
         src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
