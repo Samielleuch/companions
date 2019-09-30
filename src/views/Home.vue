@@ -1,8 +1,11 @@
 <template>
   <div>
-    <v-parallax dark :src="require('@/assets/Paralax.jpg')">
+    <v-parallax dark :src="require('@/assets/Paralax.jpg')" height="700">
       <v-row align="center" justify="center">
         <v-col cols="6">
+          <h1>
+            GET A COMPANION
+          </h1>
           <Search />
         </v-col>
       </v-row>
@@ -18,10 +21,10 @@
             <v-row class="fill-height" align="center" justify="center">
               <v-flex :key="j" v-for="j in 3">
                 <div>
-                  <v-card class="mx-auto" max-width="400" white>
+                  <v-card class="mx-auto" max-width="400" color="white">
                     <v-img
                       class="white--text"
-                      height="300px"
+                      height="270px"
                       :src="Services[(i + j) % 4].src"
                     >
                       <v-card-title class="align-end fill-height">{{
@@ -35,6 +38,11 @@
                         <span>Whitsunday Island, Whitsunday Islands</span>
                       </span>
                     </v-card-text>
+                    <v-card-actions>
+                      <v-btn text color="orange">
+                        Explore
+                      </v-btn>
+                    </v-card-actions>
                   </v-card>
                 </div>
               </v-flex>
