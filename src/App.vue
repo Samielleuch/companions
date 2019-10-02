@@ -14,12 +14,15 @@
         class="headline text-uppercase "
         @click="$router.push('Home')"
       >
-        <span class="logo display-1"> Companions </span>
+        <span class=" logo "> Companions </span>
       </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <Search color="rgba(250,250,250,0.5)" elevation="0" />
       <v-spacer></v-spacer>
       <v-btn text target="_blank" @click="$router.push('Home')" outlined>
         <span class="mr-2 adopt">Adopt a companion</span>
       </v-btn>
+
       <v-btn text target="_blank" @click="$router.push('Register')">
         <span class="mr-2">Register</span>
       </v-btn>
@@ -56,17 +59,21 @@
 </template>
 
 <script>
+import Search from "./components/Search";
 export default {
   name: "App",
-  components: {},
+  components: { Search },
   data: () => ({
     links: ["Home", "About Us", "Team", "Services", "Blog", "Contact Us"]
   })
 };
 </script>
 <style scoped>
+@import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap");
 .logo {
-  color: #1f126b;
+  color: #033500;
+  font-family: "Pacifico", cursive !important;
+  font-size: 35px;
 }
 .adopt {
   color: #066b00;

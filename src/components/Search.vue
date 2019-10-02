@@ -1,5 +1,5 @@
 <template>
-  <v-card color="rgba(250,250,250,0.6)" class="rounded">
+  <v-sheet :color="color" :elevation="elevation">
     <div>
       <v-autocomplete
         class="my-5, mx-5"
@@ -29,7 +29,7 @@
         </v-list>
       </v-expand-transition>
     </div>
-  </v-card>
+  </v-sheet>
 </template>
 
 <script>
@@ -42,7 +42,10 @@ export default {
     model: null,
     search: null
   }),
-
+  props: {
+    color: String,
+    elevation: String
+  },
   computed: {
     fields() {
       if (!this.model) return [];
@@ -94,8 +97,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.rounded {
-  border-radius: 40px;
-}
-</style>
+<style scoped></style>

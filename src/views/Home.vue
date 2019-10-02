@@ -1,62 +1,86 @@
 <template>
   <div>
-    <v-parallax dark :src="require('@/assets/Paralax.jpg')" height="700">
-      <v-row align="center" justify="center">
-        <v-col cols="6">
-          <h1>
-            GET A COMPANION
+    <v-parallax
+      dark
+      :src="require('@/assets/paralax.jpg')"
+      height="700"
+      class="my-0 py-0"
+    >
+      <v-row align="center" justify="start" class="ml-12">
+        <v-col cols="4">
+          <h1 class="display-3 ,  font-weight-light">
+            Find The Perfect Companion for you
           </h1>
-          <Search />
+          <!-- the Search Bar-->
+          <v-row>
+            <v-col cols="10" class="mt-4 mb-2">
+              <Search color="rgba(250,250,250,0.5)" elevation="5" />
+            </v-col>
+          </v-row>
+          <!-- chips links -->
+          <v-row>
+            <v-col cols="12">
+              Popular :
+              <v-chip
+                text
+                target="_blank"
+                @click="$router.push('Home')"
+                outlined
+              >
+                <span class="mr-2 adopt">Cats</span>
+              </v-chip>
+              <v-chip
+                text
+                target="_blank"
+                @click="$router.push('Home')"
+                outlined
+              >
+                <span class="mr-2 adopt">Dogs</span>
+              </v-chip>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
     </v-parallax>
-    <v-row align="center" justify="center">
-      <h1 class="display-4 my-5">Browse Our Services</h1>
+    <!--The Sponsers Bar-->
+    <v-row align="center">
+      <v-col cols="12" align="center" class="pt-0">
+        <v-card class="mt-0">
+          <img
+            :src="require('@/assets/sponsors/paypal.png')"
+            alt=""
+            class="mx-4"
+          />
+          <img
+            :src="require('@/assets/sponsors/MIT.png')"
+            alt=""
+            class="mx-4"
+          />
+          <img
+            :src="require('@/assets/sponsors/google.png')"
+            alt=""
+            class="mx-4"
+          />
+        </v-card>
+      </v-col>
     </v-row>
-
+    <!--Header Title -->
     <v-row align="center" justify="center">
-      <v-col cols="9">
-        <v-carousel>
-          <v-carousel-item v-for="(item, i) in Services.length / 2" :key="i">
-            <v-row class="fill-height" align="center" justify="center">
-              <v-flex :key="j" v-for="j in 3">
-                <div>
-                  <v-card class="mx-auto" max-width="400" color="white">
-                    <v-img
-                      class="white--text"
-                      height="270px"
-                      :src="Services[(i + j) % 4].src"
-                    >
-                      <v-card-title class="align-end fill-height">{{
-                        Services[(i + j) % 4].title
-                      }}</v-card-title>
-                    </v-img>
-                    <v-card-text>
-                      <span>Number 10</span><br />
-                      <span class="text--primary">
-                        <span>Whitehaven Beach</span><br />
-                        <span>Whitsunday Island, Whitsunday Islands</span>
-                      </span>
-                    </v-card-text>
-                    <v-card-actions>
-                      <v-btn text color="orange">
-                        Explore
-                      </v-btn>
-                    </v-card-actions>
-                  </v-card>
-                </div>
-              </v-flex>
-            </v-row>
-          </v-carousel-item>
-        </v-carousel>
+      <h1 class="display-4 my-5">Our Services</h1>
+    </v-row>
+    <!-- The Card Caroussel Content-->
+    <v-row align="center" justify="center">
+      <v-col cols="11">
+        <Cardscaroussel :Service="Services" :Cardnb="4" />
       </v-col>
     </v-row>
   </div>
 </template>
 <script>
 import Search from "../components/Search";
+import Cardscaroussel from "../components/Cardscaroussel";
 export default {
-  components: { Search },
+  components: { Search, Cardscaroussel },
   data: () => ({
     index: 0,
 
@@ -83,8 +107,4 @@ export default {
   })
 };
 </script>
-<style>
-.rounded {
-  border-radius: 50px;
-}
-</style>
+<style></style>
