@@ -66,12 +66,22 @@
     </v-row>
     <!--Header Title -->
     <v-row align="center" justify="center">
-      <h1 class="display-4 my-5">Our Services</h1>
+      <v-col cols="11" class="pb-0">
+        <h1 class="display-2 font-weight-light mt-12 mb-0">
+          Professional care and services
+        </h1>
+      </v-col>
     </v-row>
     <!-- The Card Caroussel Content-->
     <v-row align="center" justify="center">
-      <v-col cols="11">
+      <v-col cols="11" class="pt-0 mt-0">
         <Cardscaroussel :Service="Services" :Cardnb="4" />
+      </v-col>
+    </v-row>
+    <!-- The Window Component for Reviews! -->
+    <v-row align="center" justify="center">
+      <v-col cols="11" class="pt-0 mt-0">
+        <WindowCaroussel :length="length" :window="Window" />
       </v-col>
     </v-row>
   </div>
@@ -79,8 +89,9 @@
 <script>
 import Search from "../components/Search";
 import Cardscaroussel from "../components/Cardscaroussel";
+import WindowCaroussel from "../components/WindowCaroussel";
 export default {
-  components: { Search, Cardscaroussel },
+  components: { Search, Cardscaroussel, WindowCaroussel },
   data: () => ({
     index: 0,
 
@@ -103,7 +114,9 @@ export default {
         title: "Cruelty Free",
         src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
       }
-    ]
+    ],
+    Window: 0,
+    length: 3
   })
 };
 </script>

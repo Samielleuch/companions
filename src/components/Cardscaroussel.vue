@@ -5,7 +5,7 @@
         <v-row class="fill-height" align="center" justify="center">
           <v-flex :key="j" v-for="j in Cardnb">
             <div>
-              <v-card class="mx-auto" max-width="400" color="white">
+              <v-card class="mx-auto" max-width="300" color="white">
                 <v-img
                   class="white--text"
                   height="270px"
