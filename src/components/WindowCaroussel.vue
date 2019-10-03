@@ -16,7 +16,7 @@
       </v-item-group>
 
       <v-col>
-        <v-window v-model="window" class="elevation-1" vertical>
+        <v-window v-model="window" class="elevation-1" continuous vertical>
           <v-window-item v-for="n in length" :key="n">
             <v-card flat>
               <v-card-text>
@@ -74,7 +74,12 @@
 export default {
   name: "WindowCaroussel",
   data: () => ({}),
-  props: { length: String, window: String }
+  props: { length: String, window: String },
+  created() {
+    setInterval(() => {
+      if (++this.window >= this.length) this.window = 0;
+    }, 1000);
+  }
 };
 </script>
 

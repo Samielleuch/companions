@@ -64,9 +64,16 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <!-- The Window Component for Reviews! -->
+    <v-row align="center" justify="center">
+      <v-col cols="11" class="pt-0 mt-12">
+        <WindowCaroussel :length="length" :window="Window" />
+      </v-col>
+    </v-row>
     <!--Header Title -->
     <v-row align="center" justify="center">
-      <v-col cols="11" class="pb-0">
+      <v-col cols="11" class="pb-0 mb-0">
         <h1 class="display-2 font-weight-light mt-12 mb-0">
           Professional care and services
         </h1>
@@ -76,12 +83,6 @@
     <v-row align="center" justify="center">
       <v-col cols="11" class="pt-0 mt-0">
         <Cardscaroussel :Service="Services" :Cardnb="4" />
-      </v-col>
-    </v-row>
-    <!-- The Window Component for Reviews! -->
-    <v-row align="center" justify="center">
-      <v-col cols="11" class="pt-0 mt-0">
-        <WindowCaroussel :length="length" :window="Window" />
       </v-col>
     </v-row>
   </div>
