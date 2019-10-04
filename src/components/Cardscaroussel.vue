@@ -1,25 +1,46 @@
 <template>
-  <div>
-    <v-carousel continuous="true" hide-delimiter-background="true">
-      <v-carousel-item v-for="(item, i) in Service.length / 2" :key="i">
-        <v-row class="fill-height" align="center" justify="center">
-          <v-flex :key="j" v-for="j in Cardnb">
-            <div>
-              <v-card class="mx-auto" max-width="300" color="white">
+  <div class="limitHeight">
+    <v-carousel
+      continuous="true"
+      hide-delimiter-background="true"
+      class="mt-0 pt-0 mb-3 pb-0 limitHeight "
+    >
+      <v-carousel-item
+        v-for="(item, i) in Service.length / 2"
+        :key="i"
+        class="mt-0 pt-0 mb-3 pb-0 limitHeight"
+      >
+        <v-row
+          class=" mt-5 pt-0 mb-3 pb-0 limitHeight"
+          align="center"
+          justify="center"
+        >
+          <v-flex
+            :key="j"
+            v-for="j in Cardnb"
+            class="mt-0 pt-0 mb-3 pb-0 limitHeight"
+          >
+            <div class="mt-0 pt-0 mb-3 pb-0 limitHeight">
+              <v-card class="mx-auto" max-width="370" color="white">
                 <v-img
                   class="white--text"
-                  height="270px"
-                  :src="Service[(i + j) % 4].src"
+                  height="300px"
+                  :src="Service[(i + j) % Cardnb].src"
+                  contain
                 >
                   <v-card-title class="align-end fill-height">{{
-                    Service[(i + j) % 4].title
+                    Service[(i + j) % Cardnb].title
                   }}</v-card-title>
                 </v-img>
-                <v-card-actions>
-                  <v-btn text color="orange">
-                    Explore
-                  </v-btn>
-                </v-card-actions>
+                <v-row align="center" justify="center">
+                  <v-rating
+                    v-model="Service[(i + j) % Cardnb].rating"
+                    color="green darken-3"
+                    background-color="grey darken-1"
+                    half-increments
+                    hover
+                  ></v-rating>
+                </v-row>
               </v-card>
             </div>
           </v-flex>
@@ -36,4 +57,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.limitHeight {
+  height: 400px !important;
+}
+</style>

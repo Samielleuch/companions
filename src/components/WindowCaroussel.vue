@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row align="center">
+    <v-row align="center" class="ml-5">
       <v-item-group v-model="window" class="shrink mr-6" mandatory tag="v-flex">
         <v-item
           v-for="n in length"
@@ -15,52 +15,38 @@
         </v-item>
       </v-item-group>
 
-      <v-col>
+      <v-col cols="11">
         <v-window v-model="window" class="elevation-1" continuous vertical>
-          <v-window-item v-for="n in length" :key="n">
+          <v-window-item v-for="n in Windowcontent.length" :key="n">
             <v-card flat>
               <v-card-text>
                 <v-row class="mb-4" align="center">
-                  <v-avatar color="grey" class="mr-4"></v-avatar>
-                  <strong class="title">Title {{ n }}</strong>
+                  <strong class=" display-2">
+                    {{ Windowcontent[n - 1].Title }}
+                  </strong>
                   <div class="flex-grow-1"></div>
                   <v-btn icon>
                     <v-icon>mdi-account</v-icon>
                   </v-btn>
                 </v-row>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
+                <v-row>
+                  <v-col cols="6" justify="center">
+                    <p class="body-1">
+                      {{ Windowcontent[n - 1].content }}
+                    </p>
+                    <v-btn text color="orange">
+                      Read More
+                    </v-btn>
+                  </v-col>
+                  <v-col cols="6">
+                    <v-img
+                      :src="Windowcontent[n - 1].src"
+                      max-height="700"
+                      max-width="700"
+                    >
+                    </v-img>
+                  </v-col>
+                </v-row>
               </v-card-text>
             </v-card>
           </v-window-item>
@@ -74,11 +60,11 @@
 export default {
   name: "WindowCaroussel",
   data: () => ({}),
-  props: { length: String, window: String },
+  props: { length: String, window: String, Windowcontent: Array },
   created() {
     setInterval(() => {
       if (++this.window >= this.length) this.window = 0;
-    }, 1000);
+    }, 15000);
   }
 };
 </script>

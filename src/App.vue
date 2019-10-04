@@ -35,7 +35,7 @@
       <router-view />
     </v-content>
 
-    <v-footer color="deep-purple darken-3" padless>
+    <v-footer color="green darken-3" padless>
       <v-row justify="center" no-gutters>
         <v-btn
           v-for="link in links"
@@ -47,10 +47,7 @@
         >
           {{ link }}
         </v-btn>
-        <v-col
-          class="deep-purple darken-4 py-4 text-center white--text"
-          cols="12"
-        >
+        <v-col class="green darken-4 py-4 text-center white--text" cols="12">
           {{ new Date().getFullYear() }} — <strong>Elleuch Sami</strong>
         </v-col>
       </v-row>
