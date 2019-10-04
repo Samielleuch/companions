@@ -88,7 +88,39 @@
         Be kind to every kind, not just mankind
       </span>
     </v-alert>
+    <!--Header Title -->
+    <v-row align="center" justify="center">
+      <v-col align="center" class="pb-0 mb-0">
+        <h1 class="display-4 font-weight-light mt-12 mb-12">
+          OUR SCHEDUAL
+        </h1>
+      </v-col>
+    </v-row>
     <!-- Schedual here -->
+    <TimeLine :times="times" />
+    <!-- Join Us -->
+    <v-row align="center" justify="center">
+      <v-col justify="center" align="center" class="pb-0 mb-0">
+        <v-btn
+          x-large
+          outlined
+          rounded
+          class="display-1 mt-12 mb-0"
+          color="orange"
+        >
+          Join Us
+        </v-btn>
+        <v-btn
+          x-large
+          outlined
+          rounded
+          class="display-1 mt-12 mb-0 mx-5"
+          color="light-green"
+        >
+          Donate
+        </v-btn>
+      </v-col>
+    </v-row>
 
     <!--Header Title -->
     <v-row align="center" justify="center">
@@ -114,8 +146,9 @@
 import Search from "../components/Search";
 import Cardscaroussel from "../components/Cardscaroussel";
 import WindowCaroussel from "../components/WindowCaroussel";
+import TimeLine from "../components/TimeLine";
 export default {
-  components: { Search, Cardscaroussel, WindowCaroussel },
+  components: { Search, Cardscaroussel, WindowCaroussel, TimeLine },
   data: () => ({
     index: 0,
 
@@ -157,6 +190,12 @@ export default {
         src: require("@/assets/dogo.jpg")
       },
       {
+        Title: "Consider Donating ",
+        content:
+          "To help us Stay in Buisness and help provide for our pets the Best Experience please consider Donating",
+        src: require("@/assets/puppy.jpg")
+      },
+      {
         Title: "Play Time",
         content:
           "  Play time at The Dog Spot!  Need I say more?  Whether running, wrestling, rolling, jumping, or lounging is your forte, you can do it all at The Dog Spot.  Play time is all day, everyday, with the exception of our midday nap, and it’s your time to be a dog!  Surrounded by your dog friends, and always a human companion, you can play your little heart out!  So nudge your guardian today and tell them to take you to The Dog Spot, where the fun is all around you, and every hour is happy hour! ",
@@ -175,6 +214,50 @@ export default {
           "\n" +
           "Playing with all of your best buddies from 6:30 in the morning until 6:30 in the evening can really take alot out of you!  That’s why The Dog Spot has naptime for all of the dogs at The Dog Spot.  This gives the doggies a little break between play sessions. At this time, everyone gets their own space, and if they would like, their own meal or snacks.  They get a comfy blanket and some soothing tunes to give them a quiet place to reflect on the activities of the morning.  Once naptime is over, it’s back to play time with their buddies! do it all at The Dog Spot.  Play time is all day, everyday, with the exception of our midday nap, and it’s your time to be a dog!  Surrounded by your dog friends, and always a human companion, you can play your little heart out!  So nudge your guardian today and tell them to take you to The Dog Spot, where the fun is all around you, and every hour is happy hour! ",
         src: require("@/assets/sleepyboi.jpg")
+      }
+    ],
+    times: [
+      {
+        color: "green",
+        time: "8am",
+        content: {
+          title: " Play time",
+          content:
+            "we get the pets and we let them play while monitoring them and giving the space they need "
+        }
+      },
+      {
+        color: "amber",
+        time: "12am",
+        content: {
+          title: " Food time",
+          content:
+            "time to replenish all that lost energy eat healthy monitored Food"
+        }
+      },
+      {
+        color: "teal",
+        time: "12:30am",
+        content: {
+          title: " Sleep Time",
+          content: "time to sleep and rest "
+        }
+      },
+      {
+        color: "light-green",
+        time: "2Pm",
+        content: {
+          title: " Play Time",
+          content: "time to play some more :D "
+        }
+      },
+      {
+        color: "lime",
+        time: "6Pm",
+        content: {
+          title: " Sleep Time",
+          content: "time to Rest :D "
+        }
       }
     ]
   })
