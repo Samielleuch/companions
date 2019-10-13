@@ -21,7 +21,8 @@ app.get('/test' , (req,res)=>res.send('hi'));
 //Handle production
 if (process.env.NODE_ENV ==='production') {
   //static
-  app.use(express.static(path.resolve(__dirname ,'../server/public' ) ));
+  let a =path.resolve(__dirname ,'../server/public' ).then((name)=>  app.use(express.static(name))
+) .catch(err => console.log(err));
   //Handle frontend
   //app.get(/.*/, (req,res) => res.sendFile(path.resolve(__dirname ,'../public' )+'/index.html'));
 }
