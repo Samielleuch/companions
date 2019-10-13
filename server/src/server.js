@@ -23,7 +23,7 @@ if (process.env.NODE_ENV ==='production') {
   //static
   app.use(express.static(path.resolve(__dirname ,'../server/public' ) ));
   //Handle frontend
-  app.get(/.*/, (req,res) => res.sendFile(path.resolve(__dirname ,'../public' )+'/index.html'));
+  //app.get(/.*/, (req,res) => res.sendFile(path.resolve(__dirname ,'../public' )+'/index.html'));
 }
 app.listen(config.port, config.hostname, () => {
   console.log(`Server running at ${config.hostname}/`);
