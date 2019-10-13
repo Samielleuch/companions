@@ -6,7 +6,7 @@ module.exports = {
     devServer: {
         proxy: {
             '/api' :{
-                target : 'http://localhost:8081'
+                target : 'https://ecstatic-mcnulty-92ec6d.netlify.com'
             }
         }
     }
