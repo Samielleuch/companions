@@ -14,7 +14,7 @@ require("./router/router")(app);
 
 //connecting to MongoDb
 mongoose.connect(
-  "mongodb+srv://Sam:3ab9arinou@companions-ubg8j.mongodb.net/test?retryWrites=true&w=majority",
+  `mongodb+srv://${config.db.dbUser}:${config.db.dbPassword}@${config.db.dbName}-ubg8j.mongodb.net/test?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
