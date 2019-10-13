@@ -3,7 +3,7 @@
     <v-overlay
       :value="this.$store.state.isRegisterPressed"
       light
-      dark="false"
+      :dark="false"
       opacity="0.8"
     >
       <v-card
@@ -11,7 +11,7 @@
         app
         color="rgba(250,250,250,0.89)"
         outlined
-        dark="false"
+        :dark="false"
       >
         <v-row>
           <v-spacer></v-spacer>
@@ -143,6 +143,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import authenticationService from "../services/authenticationService";
 export default {
   name: "Register",
   data: () => ({
@@ -163,9 +164,15 @@ export default {
     checkbox: false
   }),
   methods: {
-    validate() {
+    async validate() {
       if (this.$refs.form.validate()) {
-        console.log("hi");
+        const response = await authenticationService.register({
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          pass: this.password
+        });
+        console.log(response.data);
       }
     },
     reset() {

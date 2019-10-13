@@ -3,7 +3,7 @@
     <v-overlay
       :value="this.$store.state.isLoginPressed"
       light
-      dark="false"
+      :dark="false"
       opacity="0.8"
     >
       <v-card
@@ -11,7 +11,7 @@
         app
         color="rgba(250,250,250,0.89)"
         outlined
-        dark="false"
+        :dark="false"
       >
         <v-row>
           <v-spacer></v-spacer>
