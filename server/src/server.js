@@ -17,7 +17,7 @@ mongoose.connect(
   `mongodb+srv://${config.db.dbUser}:${config.db.dbPassword}@${config.db.dbName}-ubg8j.mongodb.net/test?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
-
+app.get('/test' , (req,res)=>res.send('hi'));
 //Handle production
 if (process.env.NODE_ENV ==='production') {
   //static
@@ -25,7 +25,6 @@ if (process.env.NODE_ENV ==='production') {
   //Handle frontend
   app.get(/.*/, (req,res) => res.sendFile(path.resolve(__dirname ,'../public' )+'/index.html'));
 }
-
 app.listen(config.port, config.hostname, () => {
   console.log(`Server running at ${config.hostname}/`);
 });
