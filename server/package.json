@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "netlify-lambda serve src",
+    "build": "netlify-lambda build src"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.7.4",
     "morgan": "^1.9.1",
-    "nodemon": "^1.19.3"
+    "netlify-lambda": "^1.6.3",
+    "nodemon": "^1.19.3",
+    "serverless-http": "^2.3.0"
   }
 }

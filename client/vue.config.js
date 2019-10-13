@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
     //change the build dir
-    outputDir: path.resolve(__dirname , '../server/public'),
+    outputDir: path.resolve(__dirname , '../server/dist'),
     //set proxy
     devServer: {
         proxy: {
