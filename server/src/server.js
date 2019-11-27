@@ -10,9 +10,8 @@ const app = express();
 app.use(logger("dev"));
 app.use(cors());
 app.use(bodyParser.json());
-const router = express.Router();
 //requiring routes
-//require("./router/router")(app);
+require("./router/router")(app);
 //connecting to MongoDb
 mongoose.connect(
   `mongodb+srv://${config.db.dbUser}:${config.db.dbPassword}@${config.db.dbName}-ubg8j.mongodb.net/test?retryWrites=true&w=majority`,
@@ -24,13 +23,9 @@ if (process.env.NODE_ENV ==='production') {
   //static
   app.use(express.static(path.resolve(__dirname ,'../server/public' ) ));
   //Handle frontend
-  app.get(/.*/, (req,res) => res.sendFile(path.resolve(__dirname ,'../public' )+'/index.html'));
+  app.get("/", (req,res) => res.sendFile(path.resolve(__dirname ,'../public' )+'/index.html'));
 }
 
-app.use('./netlify/api/server',router);
-app.listen(config.port, () => {
-  console.log(`Server running at ${config.hostname}/`);
-});
 
 
 app.listen(config.port, config.hostname, () => {
