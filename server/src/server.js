@@ -17,6 +17,7 @@ mongoose.connect(
   `mongodb+srv://${config.db.dbUser}:${config.db.dbPassword}@${config.db.dbName}-ubg8j.mongodb.net/test?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
+app.get("/*", (req,res) => res.send("hi lol"));
 
 //Handle production
 if (process.env.NODE_ENV ==='production') {
